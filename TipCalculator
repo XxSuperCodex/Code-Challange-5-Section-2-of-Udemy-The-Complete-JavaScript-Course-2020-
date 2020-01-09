@@ -1,0 +1,42 @@
+/*
+Code Challange 5: Section 2 of Udemy "The Complete JavaScript Course 2020"
+By: Cliford Rojas
+Feel free to use this code.
+*/
+
+// Restaurant bills array.
+var johnFamilySpending = {
+    restaurantBills: [124, 48, 268, 180, 42],
+    tips: [],
+    total:[],
+    calcTips: function () {
+        var tempTips;
+        for (var x = 0; x < this.restaurantBills.length; x++) {
+            switch (true) {
+                case this.restaurantBills[x] < 50:
+                    tempTips = this.restaurantBills[x] *.2;
+                    this.tips.push(tempTips);
+                    this.total.push(tempTips+this.restaurantBills[x]);
+                    break;
+                case this.restaurantBills[x] >= 50 && this.restaurantBills[x] <= 200:
+                    tempTips = this.restaurantBills[x] *.15;
+                    this.tips.push(tempTips);
+                    this.total.push(tempTips+this.restaurantBills[x]);
+                    break;
+                case this.restaurantBills[x] > 200:
+                    tempTips = this.restaurantBills[x] *.1;
+                    this.tips.push(tempTips);
+                    this.total.push(tempTips+this.restaurantBills[x]);
+                    break;
+            }
+        }
+
+    },
+
+
+
+}
+
+johnFamilySpending.calcTips();
+console.log(johnFamilySpending.total);
+
